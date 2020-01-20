@@ -4,49 +4,69 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: 'resume',
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'coverletter',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('../coverletter/coverletter.module').then(m => m.CoverLetterModule)
           }
         ]
       },
       {
-        path: 'tab2',
+        path: 'skills',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('../skills/skills.module').then(m => m.SkillsPageModule)
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'education',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../education/education.module').then(m => m.EducationPageModule)
+          }
+        ]
+      },
+      {
+        path: 'hobbies',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../hobbies/hobbies.module').then(m => m.HobbiesPageModule)
+          }
+        ]
+      },
+      {
+        path: 'contact',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../contact/contact.module').then(m => m.ContactPageModule)
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/resume/coverletter',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/resume/coverletter',
     pathMatch: 'full'
   }
 ];
